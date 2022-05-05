@@ -1,6 +1,15 @@
 defmodule Automata do
 
   #1: función determinize
+  def setter([]), do: [[]]  #Caso base
+  def setter([h|t]), do
+    tail = setter(t)
+    setter(h, tail, tail)
+  end
+  defp setter (_, [], acc), do: acc
+  defp setter(y, [h|t], acc), do: setter(y, t, [[y|h] | acc])
+
+
   def determinize(n) do
     %{
       alpha: n.alpha,
