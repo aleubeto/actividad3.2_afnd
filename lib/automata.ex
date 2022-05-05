@@ -34,8 +34,8 @@ defmodule Automata do
 
   #2: función e_closure
   def e_closure_aux(delta, curr, stack) do
-    Enum.map(curr, fn y -> {[x], nil}end)
-    |> Enun.reduce(stack, fn key, visitedp ->
+    Enum.map(curr, fn y -> {[y], nil}end)
+    |> Enum.reduce(stack, fn key, visitedp ->
       y = delta[key]
       if y != nil do
         e_closure_aux(delta, y, [y | visitedp])
