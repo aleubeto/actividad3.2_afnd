@@ -50,6 +50,7 @@ defmodule Automata do
     Enum.reduce(r, r, fn q, acc -> e_closure_aux(n.delta, q, acc)end)
     |> Enum.sort()
   end
+  #Automata.e_closure(InciandoTT.a2, [P0])
 
   #3: función e_determinize
   def e_determinize() do
