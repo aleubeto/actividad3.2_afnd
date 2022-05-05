@@ -25,7 +25,9 @@ defmodule Automata do
     %{
       alpha: n.alpha,
       states: a_states,
-      istates: [n.istates]
+      istates: [n.istates],
+      fstates: Enum.filter(estados,fn r -> Enum.any?(r, fn e->e in n.fstates end)end),
+      delta: deltav |> Map.new()
     }
   end
   #Ejecución: Automata.determinize(IniciandoTT.a1)
