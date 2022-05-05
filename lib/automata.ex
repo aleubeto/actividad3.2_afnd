@@ -2,7 +2,7 @@ defmodule Automata do
 
   #1: función determinize
   def setter([]), do: [[]]  #Caso base
-  def setter([h|t]), do
+  def setter([h|t]) do
     tail = setter(t)
     setter(h, tail, tail)
   end
