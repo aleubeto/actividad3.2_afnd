@@ -9,10 +9,22 @@ defmodule Automata do
   defp setter (_, [], acc), do: acc
   defp setter(y, [h|t], acc), do: setter(y, t, [[y|h] | acc])
 
+  def deltap(n) do
+    a_states = setter(n.states)
+    deltav =  for estado <- a_states, transicion <- n.alpha do
+                {{estado, transicion},
+                  Enum.map(estado, fn conjunto -> n.delta[{conjunto, transicion}] end)
+                  |> List.flatten
+                }
+              end
+    {a_states, deltav}
+  end
 
   def determinize(n) do
+    {a_states, deltav} = deltap(n)
     %{
       alpha: n.alpha,
+      states: a_states,
       istates: [n.istates]
     }
   end
