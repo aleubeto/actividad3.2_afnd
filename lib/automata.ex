@@ -32,19 +32,25 @@ defmodule Automata do
   end
   #Ejecución: Automata.determinize(IniciandoTT.a1)
 
-  def e_closure() do
-    #2: función e_closure
-  end
+  #2: función e_closure
   def e_closure_aux(delta, curr, stack) do
-    Enum.reduce(delta[{curr,nil}] || [], satck, fn y, visitedp) ->
-      if y not in visitedp do
-        e_closure_aux(delta, y, [y | visistedp])
+    Enum.map(curr, fn y -> {[x], nil}end)
+    |> Enun.reduce(stack, fn key, visitedp ->
+      y = delta[key]
+      if y != nil do
+        e_closure_aux(delta, y, [y | visitedp])
       else
-        visitedp
+        List.flatten(visitedp)
+        |> Enum.uniq
       end
     end)
   end
+
+  def e_closure() do
+    Enum.reduce(r, r, fn q, acc -> e_closure_aux(n.delta, q, acc)end)
+    |> Enum.sort()
+  end
+  #3: función e_determinize
   def e_determinize() do
-    #3: función e_determinize
   end
 end
