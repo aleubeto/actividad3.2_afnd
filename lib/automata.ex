@@ -34,14 +34,11 @@ defmodule Automata do
 
   #2: función e_closure
   def e_closure_aux(delta, curr, stack) do
-    Enum.map(curr, fn y -> {[y], nil}end)
-    |> Enum.reduce(stack, fn key, visitedp ->
-      y = delta[key]
-      if y != nil do
+    Enum.reduce(delta[{curr, nil}] || [], stack, fn y, visitedp ->
+      if y not in visitedp do
         e_closure_aux(delta, y, [y | visitedp])
       else
-        List.flatten(visitedp)
-        |> Enum.uniq
+        visitedp
       end
     end)
   end
