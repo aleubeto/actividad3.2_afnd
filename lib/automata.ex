@@ -52,6 +52,7 @@ defmodule Automata do
   end
   #Ejecución: Automata.e_closure(IniciandoTT.a2, [P0])
 
+
   #3: función e_determinize
   def e_determinize() do
   end
