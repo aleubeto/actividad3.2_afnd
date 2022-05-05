@@ -46,10 +46,11 @@ defmodule Automata do
     end)
   end
 
-  def e_closure() do
+  def e_closure(n, r) do
     Enum.reduce(r, r, fn q, acc -> e_closure_aux(n.delta, q, acc)end)
     |> Enum.sort()
   end
+
   #3: función e_determinize
   def e_determinize() do
   end
