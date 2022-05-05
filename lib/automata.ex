@@ -1,7 +1,14 @@
 defmodule Automata do
+
+  #1: función determinize
   def determinize(n) do
-    #1: función determinize
+    %{
+      alpha: n.alpha,
+      istates: [n.istates]
+    }
   end
+  #Ejecución: Automata.determinize(IniciandoTT.a1)
+
   def e_closure() do
     #2: función e_closure
   end
