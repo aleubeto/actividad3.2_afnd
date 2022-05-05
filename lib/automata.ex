@@ -32,10 +32,12 @@ defmodule Automata do
   end
   #Ejecución: Automata.determinize(IniciandoTT.a1)
 
+  #2: función e_closure
   def e_closure() do
-    #2: función e_closure
+    Enum.reduce(r, r, fn q, acc -> e_closure_aux(n.delta, q, acc)end)
+    |> Enum.sort()
   end
+  #3: función e_determinize
   def e_determinize() do
-    #3: función e_determinize
   end
 end
