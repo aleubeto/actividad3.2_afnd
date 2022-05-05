@@ -6,7 +6,7 @@ defmodule Automata do
     tail = setter(t)
     setter(h, tail, tail)
   end
-  defp setter (_, [], acc), do: acc
+  defp setter(_, [], acc), do: acc
   defp setter(y, [h|t], acc), do: setter(y, t, [[y|h] | acc])
 
   def deltap(n) do
