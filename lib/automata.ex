@@ -35,6 +35,15 @@ defmodule Automata do
   def e_closure() do
     #2: función e_closure
   end
+  def e_closure_aux(delta, curr, stack) do
+    Enum.reduce(delta[{curr,nil}] || [], satck, fn y, visitedp) ->
+      if y not in visitedp do
+        e_closure_aux(delta, y, [y | visistedp])
+      else
+        visitedp
+      end
+    end)
+  end
   def e_determinize() do
     #3: función e_determinize
   end
